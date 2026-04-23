@@ -1,0 +1,15 @@
+# Maven
+**/target/
+**/.mvn/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local secrets
+.env

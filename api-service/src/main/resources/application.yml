@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+task:
+  messaging:
+    exchange: task.exchange
+    queue: task.queue
+    routing-key: task.routing
+
+security:
+  jwt:
+    expiration-seconds: ${API_JWT_EXPIRATION_SECONDS:3600}
+  rate-limit:
+    create-task:
+      capacity: ${API_RATE_LIMIT_CREATE_TASK_CAPACITY:20}
+      window-seconds: ${API_RATE_LIMIT_CREATE_TASK_WINDOW_SECONDS:60}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    root: INFO
+    io.github.gerenciadortarefas.apiservice: INFO

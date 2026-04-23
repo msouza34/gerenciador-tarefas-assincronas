@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: worker-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  main:
+    web-application-type: none
+
+task:
+  max-retries: ${TASK_MAX_RETRIES:3}
+  processing:
+    simulated-delay-ms: ${TASK_PROCESSING_SIMULATED_DELAY_MS:2000}
+  messaging:
+    exchange: task.exchange
+    queue: task.queue
+    routing-key: task.routing
+
+logging:
+  level:
+    root: INFO
+    io.github.gerenciadortarefas.workerservice: INFO

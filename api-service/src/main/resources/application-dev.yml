@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:tasksdb}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+  flyway:
+    enabled: false
+
+security:
+  auth:
+    username: ${API_AUTH_USERNAME:admin}
+    password: ${API_AUTH_PASSWORD:change-this-dev-password}
+  jwt:
+    secret: ${API_JWT_SECRET:change-this-dev-secret-key-with-at-least-32-characters}
